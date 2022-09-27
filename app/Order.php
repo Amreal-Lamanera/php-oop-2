@@ -3,7 +3,6 @@
 class Order
 {
     private $products = [];
-    private $productsNum = [];
     private $amount = 0;
 
     public function __construct($product)
@@ -22,11 +21,10 @@ class Order
     public function setProducts($product)
     {
         foreach ($product as $value) {
-            if (in_array($value, $this->products)) {
-                $this->productsNum[$value->getName()]++;
+            if (in_array($value->getName(), array_keys($this->products))) {
+                $this->products[$value->getName()][1]++;
             } else {
-                $this->products[] = $value;
-                $this->productsNum[$value->getName()] = 1;
+                $this->products[$value->getName()] = [$value, 1];
             }
         }
     }

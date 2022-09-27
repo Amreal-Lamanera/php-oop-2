@@ -2,12 +2,12 @@
 
 include_once __DIR__ . '/Product.php';
 
-class PetFood extends Product
+class PetAccessory extends Product
 {
-    protected $petAge = null;
-    protected $petSize = null;
     protected $weight;
     protected $dim;
+    protected $material;
+    protected $volume;
 
     public function __construct($param)
     {
@@ -19,15 +19,15 @@ class PetFood extends Product
     }
 
     // opzionali
-    public function setPetAge($petAge)
+    public function setMaterial($material)
     {
-        if (is_string($petAge))
-            $this->petAge = $petAge;
+        if (is_string($material))
+            $this->material = $material;
     }
 
-    public function setPetSize($petSize)
+    public function setVolume($volume)
     {
-        if (is_string($petSize))
-            $this->petSize = $petSize;
+        if (is_int($volume))
+            $this->volume = $volume;
     }
 }

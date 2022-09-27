@@ -18,7 +18,16 @@ class Product
         $this->description = $param['description'];
     }
 
-    // opzionali
+    protected function setVol()
+    {
+        $this->volume = 1;
+        foreach ($this->dim as $value) {
+            $this->volume *= $value;
+        }
+        $this->volume *= $this->weight;
+    }
+
+    // opzionali - setters
     public function setBrand($brand)
     {
         if (is_string($brand))
@@ -35,5 +44,16 @@ class Product
     {
         if (is_array($categories))
             $this->categories = $categories;
+    }
+
+    //getters
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getPrice()
+    {
+        return $this->price;
     }
 }

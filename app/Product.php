@@ -2,18 +2,38 @@
 
 class Product
 {
-    public $name;
-    public $price;
-    public $poster;
-    public $description;
-    protected $volume;
-    public $brand;
-    public $categories;
+    protected $name;
+    protected $price;
+    protected $description;
+    protected $poster = null;
+    protected $volume = null;
+    protected $brand = null;
+    protected $categories = [];
 
     function __construct($param)
     {
-        foreach ($param as $key => $value) {
-            $this->$key = $value;
-        }
+        // obbligatori
+        $this->name = $param['name'];
+        $this->price = $param['price'];
+        $this->description = $param['description'];
+    }
+
+    // opzionali
+    public function setBrand($brand)
+    {
+        if (is_string($brand))
+            $this->brand = $brand;
+    }
+
+    public function setPoster($poster)
+    {
+        if (filter_var($poster, FILTER_VALIDATE_URL) || is_file($poster))
+            $this->poster = $poster;
+    }
+
+    public function setCategories($categories)
+    {
+        if (is_array($categories))
+            $this->categories = $categories;
     }
 }

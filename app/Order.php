@@ -41,7 +41,9 @@ class Order
         foreach ($product as $value) {
             $totalVolume += $value->getVolume();
         }
-        if ($totalVolume < 200)
+        if ($totalVolume <= 100)
+            $this->deliveryPrice = 10;
+        elseif ($totalVolume <= 200)
             $this->deliveryPrice = 50;
         elseif ($totalVolume <= 300)
             $this->deliveryPrice = 80;

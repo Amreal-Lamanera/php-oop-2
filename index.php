@@ -57,6 +57,33 @@ $ciotola->setVolume(470);
 
 var_dump($ciotola);
 
-
+// TEST: ordine prezzo > 200
 $ordine = new Order([$tiragraffi, $ciotola, $crocchette, $crocchette]);
+var_dump($ordine);
+
+// TEST: ordine prezzo < 200 | volume < 200
+$ordine = new Order([$tiragraffi]);
+var_dump($ordine);
+
+$data = [
+    'name' => 'Tiragraffi Economico',
+    'description' => 'Tiragraffi economico gigante',
+    'price' => 2.99,
+    'weight' => 50,
+    'dim' => [1, 1, 2],
+];
+
+$tiragraffi2 = new PetToy($data);
+$tiragraffi2->setBrand('GraffiamiAncora &co.');
+$tiragraffi2->setCategories(['Giochi per gatti', 'Tiragraffi']);
+$tiragraffi2->setPoster('https://www.ibs.it/images/8050043120823_0_0_536_0_75.jpg');
+$tiragraffi2->setMaterials(['Plastica', 'Poliestere', 'Legno']);
+var_dump($tiragraffi2);
+
+// TEST: ordine prezzo < 200 | volume < 300
+$ordine = new Order([$tiragraffi2, $tiragraffi2]);
+var_dump($ordine);
+
+// TEST: ordine prezzo < 200 | volume > 300
+$ordine = new Order([$tiragraffi2, $tiragraffi2, $tiragraffi2, $ciotola]);
 var_dump($ordine);

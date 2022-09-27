@@ -4,16 +4,18 @@ class Order
 {
     private $products = [];
     private $amount = 0;
+    private $deliveryPrice = 0;
 
     public function __construct($product)
     {
         $this->setProducts($product);
         $this->setAmount($product);
+        $this->setDeliveryPrice($product);
     }
 
-    public function setAmount($products)
+    public function setAmount($product)
     {
-        foreach ($products as $value) {
+        foreach ($product as $value) {
             $this->amount += $value->getPrice();
         }
     }
@@ -27,5 +29,23 @@ class Order
                 $this->products[$value->getName()] = [$value, 1];
             }
         }
+    }
+
+    public function setDeliveryPrice($product)
+    {
+        if ($this->amount > 200) {
+            $this->deliveryPrice = 0;
+            return;
+        }
+        $totalVolume = 0;
+        foreach ($product as $value) {
+            $totalVolume += $value->getVolume();
+        }
+        if ($totalVolume < 200)
+            $this->deliveryPrice = 50;
+        elseif ($totalVolume <= 300)
+            $this->deliveryPrice = 80;
+        else
+            $this->deliveryPrice = 120;
     }
 }

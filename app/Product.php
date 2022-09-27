@@ -56,4 +56,9 @@ class Product
     {
         return $this->price;
     }
+
+    public function getVolume()
+    {
+        return $this->volume;
+    }
 }

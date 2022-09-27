@@ -87,3 +87,15 @@ var_dump($ordine);
 // TEST: ordine prezzo < 200 | volume > 300
 $ordine = new Order([$tiragraffi2, $tiragraffi2, $tiragraffi2, $ciotola]);
 var_dump($ordine);
+
+// TEST: prodotto generico
+$prodotto = new Product(
+    [
+        'name' => 'Prodotto',
+        'price' => 80.99,
+        'description' => 'Un prodotto a caso'
+    ]
+);
+$prodotto->setVol(250);
+$ordine = new Order([$prodotto]);
+var_dump($ordine);

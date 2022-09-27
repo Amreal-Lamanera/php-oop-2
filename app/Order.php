@@ -13,14 +13,14 @@ class Order
         $this->setDeliveryPrice($product);
     }
 
-    public function setAmount($product)
+    private function setAmount($product)
     {
         foreach ($product as $value) {
             $this->amount += $value->getPrice();
         }
     }
 
-    public function setProducts($product)
+    private function setProducts($product)
     {
         foreach ($product as $value) {
             if (in_array($value->getName(), array_keys($this->products))) {
@@ -31,7 +31,7 @@ class Order
         }
     }
 
-    public function setDeliveryPrice($product)
+    private function setDeliveryPrice($product)
     {
         if ($this->amount > 200) {
             $this->deliveryPrice = 0;

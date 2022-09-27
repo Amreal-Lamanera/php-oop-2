@@ -18,13 +18,19 @@ class Product
         $this->description = $param['description'];
     }
 
-    protected function setVol()
+    // rendo setVol pubblica con la possibilità di avere prodotti generici
+    public function setVol()
     {
-        $this->volume = 1;
-        foreach ($this->dim as $value) {
-            $this->volume *= $value;
+        if (!func_get_args()) {
+            $this->volume = 1;
+            foreach ($this->dim as $value) {
+                $this->volume *= $value;
+            }
+            $this->volume *= $this->weight;
+        } else {
+            $arg = func_get_args();
+            $this->volume = $arg[0];
         }
-        $this->volume *= $this->weight;
     }
 
     // opzionali - setters

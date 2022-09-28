@@ -9,7 +9,6 @@ trait Measurements
     {
         if (!(is_numeric($param['weight']))) {
             throw new Exception('Il peso deve essere un numero');
-            return;
         }
         if ($param['weight'] < 0) {
             throw new Exception('Il peso deve essere positivo');
@@ -17,7 +16,6 @@ trait Measurements
         foreach ($param['dim'] as $dim) {
             if (!is_numeric($dim)) {
                 throw new Exception('Le dimensioni devono essere un numero!');
-                return;
             }
             if ($dim < 0) {
                 throw new Exception('Le dimensioni devono essere positive');

@@ -6,10 +6,7 @@ trait Materials
 
     protected function setMaterials($materials)
     {
-        foreach ($materials as $material) {
-            $this->materials[] = $material;
-        }
-        // echo 'Materials funziona';
+        $this->materials[] = $materials;
     }
 
     public function getMaterials()

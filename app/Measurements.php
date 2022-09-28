@@ -23,7 +23,6 @@ trait Measurements
         }
         $this->weight = $param['weight'];
         $this->dim = $param['dim'];
-        // echo 'Measurement funziona';
     }
 
     public function getWeight()

@@ -99,3 +99,71 @@ $prodotto = new Product(
 $prodotto->setVol(250);
 $ordine = new Order([$prodotto]);
 var_dump($ordine);
+
+// ECCEZIONE DIM < 0
+
+$data = [
+    'name' => 'Prova eccezione dim',
+    'description' => 'bla bla bla',
+    'price' => 9000,
+    'weight' => 500,
+    'dim' => [-1, 1, 2],
+];
+
+try {
+    $exception = new PetToy($data);
+    var_dump($exception);
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+
+// ECCEZIONE WEIGHT < 0
+
+$data = [
+    'name' => 'Prova eccezione dim',
+    'description' => 'bla bla bla',
+    'price' => 9000,
+    'weight' => -500,
+    'dim' => [1, 1, 2],
+];
+
+try {
+    $exception = new PetToy($data);
+    var_dump($exception);
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+
+// ECCEZIONE DIM NON NUMERICO
+
+$data = [
+    'name' => 'Prova eccezione dim',
+    'description' => 'bla bla bla',
+    'price' => 9000,
+    'weight' => 500,
+    'dim' => ['ciao', 1, 2],
+];
+
+try {
+    $exception = new PetToy($data);
+    var_dump($exception);
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+
+// ECCEZIONE WEIGHT NON NUMERICO
+
+$data = [
+    'name' => 'Prova eccezione dim',
+    'description' => 'bla bla bla',
+    'price' => 9000,
+    'weight' => 'ciao',
+    'dim' => [1, 1, 2],
+];
+
+try {
+    $exception = new PetToy($data);
+    var_dump($exception);
+} catch (Exception $e) {
+    echo $e->getMessage();
+}

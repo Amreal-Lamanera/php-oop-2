@@ -103,7 +103,7 @@ var_dump($ordine);
 // ECCEZIONE DIM < 0
 
 $data = [
-    'name' => 'Prova eccezione dim',
+    'name' => 'Prova eccezione',
     'description' => 'bla bla bla',
     'price' => 9000,
     'weight' => 500,
@@ -120,7 +120,7 @@ try {
 // ECCEZIONE WEIGHT < 0
 
 $data = [
-    'name' => 'Prova eccezione dim',
+    'name' => 'Prova eccezione',
     'description' => 'bla bla bla',
     'price' => 9000,
     'weight' => -500,
@@ -137,7 +137,7 @@ try {
 // ECCEZIONE DIM NON NUMERICO
 
 $data = [
-    'name' => 'Prova eccezione dim',
+    'name' => 'Prova eccezione',
     'description' => 'bla bla bla',
     'price' => 9000,
     'weight' => 500,
@@ -154,7 +154,7 @@ try {
 // ECCEZIONE WEIGHT NON NUMERICO
 
 $data = [
-    'name' => 'Prova eccezione dim',
+    'name' => 'Prova eccezione',
     'description' => 'bla bla bla',
     'price' => 9000,
     'weight' => 'ciao',

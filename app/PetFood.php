@@ -1,20 +1,21 @@
 <?php
 
 include_once __DIR__ . '/Product.php';
+include_once __DIR__ . '/Measurements.php';
 
 class PetFood extends Product
 {
+    use Measurements;
     protected $petAge = null;
     protected $petSize = null;
-    protected $weight;
-    protected $dim;
+    // protected $weight;
+    // protected $dim;
 
     public function __construct($param)
     {
         parent::__construct($param);
         //obbligatori
-        $this->weight = $param['weight'];
-        $this->dim = $param['dim'];
+        $this->setMeasurements($param);
         $this->setVol();
     }
 

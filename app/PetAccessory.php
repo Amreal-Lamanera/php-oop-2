@@ -1,33 +1,32 @@
 <?php
 
 include_once __DIR__ . '/Product.php';
+include_once __DIR__ . '/Measurements.php';
+include_once __DIR__ . '/Materials.php';
 
 class PetAccessory extends Product
 {
-    protected $weight;
-    protected $dim;
-    protected $material;
+    use Measurements, Materials;
+    // protected $weight;
+    // protected $dim;
     protected $volume;
 
     public function __construct($param)
     {
         parent::__construct($param);
         //obbligatori
-        $this->weight = $param['weight'];
-        $this->dim = $param['dim'];
+        $this->setMeasurements($param);
         $this->setVol();
     }
 
     // opzionali
-    public function setMaterial($material)
+    public function addMaterials(array $materials)
     {
-        if (is_string($material))
-            $this->material = $material;
+        $this->setMaterials($materials);
     }
 
-    public function setVolume($volume)
+    public function setVolume(float $volume)
     {
-        if (is_int($volume))
-            $this->volume = $volume;
+        $this->volume = $volume;
     }
 }

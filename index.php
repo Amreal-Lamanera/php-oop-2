@@ -35,7 +35,7 @@ $tiragraffi = new PetToy($data);
 $tiragraffi->setBrand('GraffiamiAncora &co.');
 $tiragraffi->setCategories(['Giochi per gatti', 'Tiragraffi']);
 $tiragraffi->setPoster('https://www.ibs.it/images/8050043120823_0_0_536_0_75.jpg');
-$tiragraffi->setMaterials(['Plastica', 'Poliestere', 'Legno']);
+$tiragraffi->addMaterials(['Plastica', 'Poliestere', 'Legno']);
 
 
 var_dump($tiragraffi);
@@ -52,7 +52,7 @@ $ciotola = new PetAccessory($data);
 $ciotola->setBrand('Ciotolatari');
 $ciotola->setCategories(['Ciotola']);
 $ciotola->setPoster('https://arcaplanet.vtexassets.com/arquivos/ids/227032-1200-auto?v=637454789025870000&width=1200&height=auto&aspect=true');
-$ciotola->setMaterial('Acciaio');
+$ciotola->addMaterials(['Acciaio']);
 $ciotola->setVolume(470);
 
 var_dump($ciotola);
@@ -77,7 +77,7 @@ $tiragraffi2 = new PetToy($data);
 $tiragraffi2->setBrand('GraffiamiAncora &co.');
 $tiragraffi2->setCategories(['Giochi per gatti', 'Tiragraffi']);
 $tiragraffi2->setPoster('https://www.ibs.it/images/8050043120823_0_0_536_0_75.jpg');
-$tiragraffi2->setMaterials(['Plastica', 'Poliestere', 'Legno']);
+$tiragraffi2->addMaterials(['Plastica', 'Poliestere', 'Legno']);
 var_dump($tiragraffi2);
 
 // TEST: ordine prezzo < 200 | volume < 300

@@ -8,17 +8,17 @@ trait Measurements
     protected function setMeasurements($param)
     {
         if (!(is_numeric($param['weight']))) {
-            throw new Exception('Il peso deve essere un numero');
+            throw new Exception('Il peso deve essere un numero. <br><br>');
         }
         if ($param['weight'] < 0) {
-            throw new Exception('Il peso deve essere positivo');
+            throw new Exception('Il peso deve essere positivo. <br><br>');
         }
         foreach ($param['dim'] as $dim) {
             if (!is_numeric($dim)) {
-                throw new Exception('Le dimensioni devono essere un numero!');
+                throw new Exception('Le dimensioni devono essere un numero. <br><br>');
             }
             if ($dim < 0) {
-                throw new Exception('Le dimensioni devono essere positive');
+                throw new Exception('Le dimensioni devono essere positive. <br><br>');
             }
         }
         $this->weight = $param['weight'];
